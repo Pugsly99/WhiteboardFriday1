@@ -1,0 +1,26 @@
+//////////////////////////Prompt 3
+
+takes a string with repeated chars and compress
+use a num to show compressed num amount   aaa ---> 3a
+
+"aaabccdddda" --> "3ab2c4da"
+"abcc" ----> "ab2c"
+with recursion and without 
+
+
+function strCompress(str, i = 0, outcome = "", count = 0){
+if(i <= str.length){
+    if (str[i] != str[i + 1]){            
+      count++;
+      outcome += count + str[i];
+      count = 0;
+      i++;
+      return strCompress(str, i, outcome, count);
+    }else { 
+      count++;
+      i++;
+      return strCompress(str, i, outcome, count);
+    }
+}
+return outcome;
+}
